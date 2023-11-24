@@ -10,9 +10,22 @@ Parte 2 -> Criar o código e ver o teste passar
 Refactor
 Parte 3 -> Melhorar meu código
 """
+try:
+    import sys
+    import os
+    sys.path.append(
+        os.path.abspath(
+            os.path.join(
+                os.path.dirname(__file__),
+                '../src'
+            )
+        )
+    )
+except:
+    raise
 
 import unittest
-from baconcomovos import bacon_com_ovos
+from baconcomovos import bacon_com_ovos # type: ignore
 
 class TestBaconComOvos(unittest.TestCase):
     def test_bacon_com_ovos_deve_levantar_assertion_error_se_nao_receber_int(self):
@@ -51,4 +64,5 @@ class TestBaconComOvos(unittest.TestCase):
     
 
 
-unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
